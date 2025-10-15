@@ -18,7 +18,9 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	change_state(current_state.take_input(event))
 
-## Attempts to change to a new State. If so, runs the new State's enter method and the old state's exit method. Otherwise, does nothing.
+## Attempts to change to a new State.
+## If so, runs the new State's enter method and the old state's exit method.
+## Otherwise, does nothing.
 func change_state(new_state: State) -> void:
 	if (new_state == null || new_state == current_state):
 		return
@@ -28,7 +30,8 @@ func change_state(new_state: State) -> void:
 	current_state = new_state
 	current_state.enter()
 
-## Fetches all States attached to some Player object and sets the top-most state to be the initial state.
+## Fetches all States attached to some Player object
+## and sets the top-most state to be the initial state.
 func initialize_states(player: Player) -> void:
 	states = []
 	for c in get_children():
