@@ -4,4 +4,5 @@ signal damaged(damage: int)
 
 func take_damage(damage: int):
 	print("Damage: ", damage)
+	# For future-proofing?
 	damaged.emit(damage)

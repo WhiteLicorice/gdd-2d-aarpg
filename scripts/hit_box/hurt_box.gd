@@ -4,7 +4,6 @@ class_name HurtBox extends Area2D
 
 func _ready():
 	area_entered.connect(enter_area)
-	pass
 	
 func enter_area(area: Area2D) -> void:
 	if(area is HitBox):
