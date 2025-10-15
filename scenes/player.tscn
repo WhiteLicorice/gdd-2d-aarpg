@@ -167,3 +167,5 @@ script = ExtResource("4_dqkch")
 
 [node name="WalkState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("5_qlg0r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
