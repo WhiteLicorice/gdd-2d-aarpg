@@ -8,6 +8,8 @@ var cardinality: Vector2 = Vector2.DOWN
 @onready var sprite_2d = $Sprite2D
 @onready var player_state_machine = $PlayerStateMachine
 
+signal direction_changed(new_direction: Vector2)
+
 func update_animation(state: String) -> bool:
 	animation_player.play(state + '_' + cardinality_to_string())
 	return true
@@ -27,6 +29,8 @@ func update_direction() -> bool:
 		
 	cardinality = new_direction
 	sprite_2d.scale.x = -1 if (cardinality.x < 0) else 1
+	
+	direction_changed.emit(cardinality)
 		
 	return true
 		

@@ -9,6 +9,7 @@ class_name PlayerAttackState extends State
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var attack_animation_player: AnimationPlayer = $"../../Sprite2D/AttackEffect/AnimationPlayer"
 @onready var audio_stream_player: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
+@onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
 
 var _is_attacking: bool = false
 
@@ -24,14 +25,21 @@ func enter() -> void:
 	attack_animation_player.play('attack_' + player.cardinality_to_string())
 	animation_player.animation_finished.connect(end_attack)
 	_is_attacking = true
-
+	
+	# Introduce a brief delay so the hurtbox only becomes active during
+	# the apex of the sword's swing!
+	await get_tree().create_timer(0.075).timeout
+	
+	hurt_box.monitoring = true
+	
 ## Fires when the State terminates.
 func exit() -> void:
 	animation_player.animation_finished.disconnect(end_attack)
 	_is_attacking = false
+	hurt_box.monitoring = false
 	
 ## Runs per frame inside _process.
-func process(delta: float) -> State:
+func process(_delta: float) -> State:
 	player.velocity = Vector2.ZERO
 	if (not _is_attacking):
 		if (player.direction == Vector2.ZERO):
