@@ -1,5 +1,9 @@
 class_name Player extends CharacterBody2D
 
+const CARDINALITIES: Array[Vector2] = [Vector2.RIGHT,
+										Vector2.DOWN,
+										Vector2.LEFT,
+										Vector2.UP,]
 var move_speed: float = 25_000.0
 var direction: Vector2 = Vector2.ZERO
 var cardinality: Vector2 = Vector2.DOWN
@@ -15,15 +19,12 @@ func update_animation(state: String) -> bool:
 	return true
 
 func update_direction() -> bool:
-	var new_direction: Vector2 = direction
-	if (new_direction == Vector2.ZERO):
+	if (direction == Vector2.ZERO):
 		return false
 	
-	if (direction.y == 0):
-		new_direction = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	elif (direction.x == 0):
-		new_direction = Vector2.UP if direction.y < 0 else Vector2.DOWN
-		
+	var direction_idx: int = int(round((direction + cardinality * 0.1).angle() / TAU * CARDINALITIES.size()))
+	var new_direction: Vector2 = CARDINALITIES[direction_idx]
+
 	if (new_direction == cardinality):
 		return false
 		
