@@ -9,7 +9,7 @@ class_name PlayerAttackState extends State
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var attack_animation_player: AnimationPlayer = $"../../Sprite2D/AttackEffect/AnimationPlayer"
 @onready var audio_stream_player: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
-@onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
+@onready var hurt_box: HurtBox = %SwordHurtBox
 
 var _is_attacking: bool = false
 
