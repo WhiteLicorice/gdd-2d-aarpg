@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://d06eyjrcs2g6p"]
+
+[ext_resource type="Script" uid="uid://20oh3dijmg26" path="res://scripts/world/boundary.gd" id="1_txtao"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4qpc0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_txtao"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tjukr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6fc1n"]
+
+[node name="Boundary" type="StaticBody2D"]
+script = ExtResource("1_txtao")
+
+[node name="Top" type="CollisionShape2D" parent="."]
+rotation = -3.1415927
+shape = SubResource("WorldBoundaryShape2D_4qpc0")
+
+[node name="Left" type="CollisionShape2D" parent="."]
+rotation = -4.712389
+shape = SubResource("WorldBoundaryShape2D_txtao")
+
+[node name="Bottom" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_tjukr")
+
+[node name="Right" type="CollisionShape2D" parent="."]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_6fc1n")

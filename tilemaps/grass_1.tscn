@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d6ra8p0wytsl"]
+[gd_scene load_steps=6 format=3 uid="uid://d6ra8p0wytsl"]
 
 [ext_resource type="Texture2D" uid="uid://y0e5ah2u5g2i" path="res://tilemaps/grass_1.png" id="1_c3vfn"]
-[ext_resource type="Script" uid="uid://bnsa776rod5vo" path="res://tilemaps/tilemap_.gd" id="2_fh22r"]
+[ext_resource type="Script" uid="uid://bnsa776rod5vo" path="res://scripts/world/tilemap_.gd" id="2_fh22r"]
+[ext_resource type="PackedScene" uid="uid://d06eyjrcs2g6p" path="res://tilemaps/boundary.tscn" id="3_6gyvt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3vfn"]
 texture = ExtResource("1_c3vfn")
@@ -359,3 +360,5 @@ z_index = -1
 tile_set = SubResource("TileSet_48sd7")
 rendering_quadrant_size = 32
 script = ExtResource("2_fh22r")
+
+[node name="Boundary" parent="." instance=ExtResource("3_6gyvt")]

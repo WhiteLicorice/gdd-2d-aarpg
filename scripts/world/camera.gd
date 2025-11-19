@@ -2,7 +2,6 @@ class_name Camera extends Camera2D
 
 func _ready() -> void:
 	GCameraController.bounds_changed.connect(update_bounds)
-	update_bounds(GCameraController.curr_top_left, GCameraController.curr_bottom_right)
 	
 ## Updates limit_left, limit_top, limit_right, limit_bottom
 func update_bounds(top_left: Vector2i, bottom_right: Vector2i) -> void:
