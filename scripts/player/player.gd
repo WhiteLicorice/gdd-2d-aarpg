@@ -1,9 +1,7 @@
 class_name Player extends CharacterBody2D
 
-const CARDINALITIES: Array[Vector2] = [Vector2.RIGHT,
-										Vector2.DOWN,
-										Vector2.LEFT,
-										Vector2.UP,]
+const CARDINALITIES: Array[Vector2] = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP,]
+
 var move_speed: float = 25_000.0
 var direction: Vector2 = Vector2.ZERO
 var cardinality: Vector2 = Vector2.DOWN
