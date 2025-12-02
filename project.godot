@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GCameraController="*res://scripts/autoload/g_camera_controller.gd"
 GBoundaryController="*res://scripts/autoload/g_boundary_controller.gd"
+GObjectPool="*res://scripts/autoload/g_object_pool.gd"
 
 [display]
 

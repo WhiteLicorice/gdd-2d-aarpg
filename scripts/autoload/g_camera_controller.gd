@@ -1,4 +1,4 @@
-class_name _GCameraController extends Node
+class_name GCameraController_ extends Node
 
 var curr_top_left: Vector2i
 var curr_bottom_right: Vector2i

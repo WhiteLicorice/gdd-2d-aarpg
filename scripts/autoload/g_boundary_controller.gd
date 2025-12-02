@@ -1,4 +1,4 @@
-class_name _GBoundaryController extends Node
+class_name GBoundaryController_ extends Node
 
 var curr_top: Vector2i
 var curr_left: Vector2i
